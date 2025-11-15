@@ -12,7 +12,7 @@ model_provider = "azure"
 
 [profiles.pro]
 model_provider = "azure"
-model = "gpt-5"
+model = "gpt-5-pro"
 model_reasoning_effort = "high"
 
 [model_providers.azure]
