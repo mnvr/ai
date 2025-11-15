@@ -45,3 +45,81 @@ curl 'https://ente.openai.azure.com/openai/v1/responses' \
     ]
   }'
 ```
+
+## Image input
+
+```sh
+curl 'https://ente.openai.azure.com/openai/v1/responses' \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gpt-5.1",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_image",
+            "image_url": "https://http.cat/200"
+          }
+        ]
+      }
+    ]
+  }'
+```
+
+```sh
+curl 'https://ente.openai.azure.com/openai/v1/responses' \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gpt-5.1",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {"type": "input_image", "image_url": "https://http.cat/200"},
+          {"type": "input_text", "text": "Tell me a joke that matches the photo"}
+        ]
+      }
+    ]
+  }'
+```
+
+## File input
+
+```sh
+curl 'https://ente.openai.azure.com/openai/v1/responses' \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gpt-5.1",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_file",
+            "file_url": "https://arxiv.org/pdf/1706.03762"
+          },
+          {"type": "input_text", "text": "ELI5"}
+        ]
+      }
+    ]
+  }'
+```
+
+## Web search
+
+```sh
+curl 'https://ente.openai.azure.com/openai/v1/responses' \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gpt-5.1",
+    "tools": [
+      {"type": "web_search"}
+    ],
+    "input": "What was a positive news story from today?"
+  }'
+```
