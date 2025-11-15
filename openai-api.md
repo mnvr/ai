@@ -123,3 +123,28 @@ curl 'https://ente.openai.azure.com/openai/v1/responses' \
     "input": "What was a positive news story from today?"
   }'
 ```
+
+## Reasoning
+
+GPT-5.1's default reasoning mode is `none`.
+
+```sh
+curl 'https://ente.openai.azure.com/openai/v1/responses' \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gpt-5.1",
+    "input": "Write a haiku about a topic that you find hard to write a haiku about."
+  }'
+```
+
+```sh
+curl 'https://ente.openai.azure.com/openai/v1/responses' \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gpt-5.1",
+    "input": "Write a haiku about a topic that you find hard to write a haiku about.",
+    "reasoning": {"effort": "high"}
+  }'
+```
