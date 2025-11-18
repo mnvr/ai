@@ -14,6 +14,7 @@ model_provider = "azure"
 model_provider = "azure"
 model = "gpt-5-pro"
 model_reasoning_effort = "high"
+wire_api = "responses"
 
 [model_providers.azure]
 name = "API"
