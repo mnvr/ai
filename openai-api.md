@@ -1,6 +1,10 @@
 # Zero to OpenAI API in 30 minutes
 
-API Endpoint: https://ente.openai.azure.com/openai/
+Base URL: **https://ente.services.ai.azure.com/openai/**
+
+or the shorter equivalent
+
+Base URL: https://ente.openai.azure.com/openai/
 
 Source this in your bashrc or before running the commands.
 
