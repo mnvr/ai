@@ -43,7 +43,7 @@ Then test with
 claude -p hello
 ```
 
-Alternatively, you can also put them in `~/.claude/settings.json`
+Alternatively, you can also put them in `~/.claude/settings.json`. In settings.json we can also choose the default model (or do it using the `/model` command in the CLI).
 
 ```json
 {
@@ -53,6 +53,7 @@ Alternatively, you can also put them in `~/.claude/settings.json`
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-1",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-5",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5"
-  }
+  },
+  "model": "opus"
 }
 ```
