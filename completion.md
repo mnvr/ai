@@ -59,3 +59,26 @@ curl 'https://ente.openai.azure.com/openai/v1/chat/completions' \
     ]
   }'
 ```
+
+## Works with other models
+
+### Mistral
+
+Docs: <https://docs.mistral.ai/api>
+
+Temperature for Azure deployments seems to be 1 by default.
+
+```sh
+curl 'https://ente.openai.azure.com/openai/v1/chat/completions' \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "mistral-small-2503",
+    "messages": [
+       {
+         "role": "user",
+         "content": "Tell me a joke"
+       }
+    ]
+  }'
+```
