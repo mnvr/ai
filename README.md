@@ -6,3 +6,4 @@
 1. [python.md](python.md)
 1. [notebook.md](notebook.md)
 1. [anthropic.md](anthropic.md)
+1. [completion.md](completion.md)

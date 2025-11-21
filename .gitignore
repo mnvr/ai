@@ -1,4 +1,4 @@
-key.sh
+key*.sh
 notes/
 .venv/
 .ipynb_checkpoints/
