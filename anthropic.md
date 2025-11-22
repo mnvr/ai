@@ -48,7 +48,7 @@ Alternatively, you can also put them in `~/.claude/settings.json`. In settings.j
 ```json
 {
   "env": {
-    "ANTHROPIC_API_KEY": "the-key-itself",
+    "ANTHROPIC_AUTH_TOKEN": "the-key-itself",
     "ANTHROPIC_BASE_URL": "https://ente.services.ai.azure.com/anthropic",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-1",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-5",
