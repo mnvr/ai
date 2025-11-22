@@ -2,6 +2,8 @@
 
 ## requirements.txt
 
+There isn't a way in vanilla to both install a package and add it to reqs. Simplest might be to `pip install openai` and then:
+
 ```sh
 pip freeze | grep openai >>requirements.txt
 ```

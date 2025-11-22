@@ -2,7 +2,7 @@ from openai import OpenAI
 
 client = OpenAI()
 
-models = ["gpt-4o-mini", "mistral-small-2503", "DeepSeek-V3.1"]
+models = ["gpt-4o-mini", "mistral-small-2503", "DeepSeek-V3-0324"]
 temps = [0.1, 0.7, 1, 2]
 
 input = "List 10 different random animals. No explanations, just a comma separated list."
