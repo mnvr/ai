@@ -82,3 +82,7 @@ curl 'https://ente.openai.azure.com/openai/v1/chat/completions' \
     ]
   }'
 ```
+
+### DeepSeek
+
+- DeepSeek-V3.1
