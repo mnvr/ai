@@ -1,6 +1,4 @@
 from openai import OpenAI
-from rich.console import Console
-from rich.tree import Tree
 
 client = OpenAI()
 
@@ -8,14 +6,6 @@ models = ["gpt-4o-mini", "mistral-small-2503", "DeepSeek-V3-0324"]
 temps = [0.1, 0.7, 1, 2]
 
 input = "List 10 different random animals. No explanations, just a comma separated list."
-
-console = Console(highlight=False)
-
-def print_tree(completion):
-    tree = Tree("", style="dim")
-    for key, value in completion.model_dump().items():
-        tree.add(f"{key}: {value!s:.999}")
-    console.print(tree)
 
 def run(input, model, temp=1.0):
     if model == "mistral-small-2503" and temp > 1:
@@ -26,13 +16,7 @@ def run(input, model, temp=1.0):
         temperature=temp,
     )
     output = completion.choices[0].message.content
-    console.rule(f"{model:17.17s} {temp:>4.1f}")
-    print(output)
-    print_tree(completion)
-    print()
-
-print(input)
-print()
+    print(f"{model:15.15s} {temp:>4.1f} {output}")
 
 for temp in temps:
     for model in models:
