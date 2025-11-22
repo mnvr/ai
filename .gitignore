@@ -2,3 +2,4 @@ key*.sh
 notes/
 .venv/
 .ipynb_checkpoints/
+transcripts/
