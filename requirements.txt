@@ -1,6 +1,2 @@
 openai
-jupyterlab
-numpy
-matplotlib
-# graphviz
 rich
