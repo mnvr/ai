@@ -1,15 +1,5 @@
 # OpenAI Python SDK
 
-Requirements:
-
-- Python 3
-
-Some distros remove venv from the default install; need something like `python3-venv`.
-
-```sh
-python3 -m venv .venv && source .venv/bin/activate
-```
-
 Install the OAI SDK
 
 ```sh
