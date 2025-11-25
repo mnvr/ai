@@ -26,7 +26,7 @@ python3 pre-flight.py
 
 ## Hello, World!
 
-**`hello.py`** and onwards.
+**`responses-hello.py`** and onwards.
 
 ## Env vars
 
