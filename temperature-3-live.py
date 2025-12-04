@@ -14,7 +14,7 @@ from rich.spinner import Spinner
 
 client = OpenAI()
 
-models = ["gpt-4o-mini", "mistral-small-2503", "DeepSeek-V3-0324"]
+models = ["gpt-4o-mini", "mistral-small-2503", "Ministral-3B", "DeepSeek-V3-0324"]
 temps = [0.1, 0.7, 1, 2]
 
 input = "List 10 different random animals. No explanations, just a comma separated list."
@@ -85,6 +85,7 @@ def do_runs():
     for temp in temps:
         for model in models:
             t = temp if not (model == "mistral-small-2503" and temp > 1) else 1.0
+            t = temp if not (model == "Ministral-3B" and temp > 1) else 1.5
             inference[(model, t)] = None
 
     console.print("")
