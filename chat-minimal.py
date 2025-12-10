@@ -7,7 +7,7 @@ def chat(prompt):
     context.append({"role": "user", "content": prompt})
     completion = client.chat.completions.create(
         messages=context,
-        model=model
+        model='gpt-5.1'
     )
     message = completion.choices[0].message
     context.append(message)
