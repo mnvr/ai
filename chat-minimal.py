@@ -3,19 +3,17 @@ from openai import OpenAI
 client = OpenAI()
 context = []
 
-def chat(client, model):
+def chat(prompt):
+    context.append({"role": "user", "content": prompt})
     completion = client.chat.completions.create(
         messages=context,
         model=model
     )
     message = completion.choices[0].message
     context.append(message)
-    print(message.content)
+    return message.content
 
 while True:
     prompt = input(">>> ")
-    context.append({
-        "role": "user",
-        "content": prompt
-    })
-    chat(client, 'gpt-4o-mini')
+    result = chat(prompt)
+    print(result)
