@@ -9,7 +9,7 @@ tools = [{
     "type": "function",
     "function": {
         "name": "ping",
-        "description": "ping some host on the internet",
+        "description": "ping some host on the internet from the user's machine",
         "parameters": {
             "type": "object",
             "properties": {
@@ -44,8 +44,8 @@ def handle_tool_call(tool_call):
 def call():
     return client.chat.completions.create(model="gpt-5.2", messages=messages, tools=tools)
 
-def process(input):
-    messages.append({"role": "user", "content": input})
+def process(line):
+    messages.append({"role": "user", "content": line})
     while True:
         completion = call()
         message = completion.choices[0].message
