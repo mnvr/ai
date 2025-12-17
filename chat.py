@@ -16,7 +16,11 @@ def main():
 
     try:
         while True:
-            prompt = input('\033[1m>\033[0m ')
+            while True:
+                prompt = input('\033[1m>\033[0m ')
+                prompt = prompt.strip()
+                if prompt:
+                    break
             if not transcript_file:
                 transcript_file = open(transcript_path(prompt), 'a')
                 client = OpenAI()
