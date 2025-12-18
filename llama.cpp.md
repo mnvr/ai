@@ -26,4 +26,4 @@ llama-cli -hf LiquidAI/LFM2-700M-GGUF # downloads hf user/model
 llama-server -m model.gguf # OpenAI-compatible API on port 8080
 ```
 
-For base model semantics, see [continuation.md](continuation.md).
+For base model semantics, see [completion.md](completion.md).

@@ -1,88 +1,31 @@
-# Completion API
+# Continuation
 
-API Docs: <https://platform.openai.com/docs/api-reference/chat/create>
+Base models that provide raw token completion and continuation instead of having an assistant persona trained-in.
 
-### Minimal
+1. llama-server + "/completion"
+2. llama-completion + "-no-cnv"
 
-```sh
-curl 'https://ente.openai.azure.com/openai/v1/chat/completions' \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "gpt-4o-mini",
-    "messages": [
-      {
-        "role": "user",
-        "content": "Tell me a joke"
-      }
-    ]
-  }'
-```
-
-### Temperature
-
-Sampling temperature, between 0 and 2, higher is more random. Default 1.
+Needs a base model (e.g. "ggml-org/gemma-3-1b-pt-GGUF", "ggml-org/gemma-3-270m-GGUF").
 
 ```sh
-curl 'https://ente.openai.azure.com/openai/v1/chat/completions' \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "gpt-4o-mini",
-    "temperature": 2,
-    "messages": [
-      {
-        "role": "user",
-        "content": "Tell me a joke"
-      }
-    ]
-  }'
+llama-completion -hf ggml-org/gemma-3-1b-pt-GGUF --seed 24 --p "I am a" -n 24
 ```
 
-### Logprobs
-
-Return log probabilities of each output token returned in the `content` of `message`. Top logprobs is an integer (0-20) specifying the number of most likely tokens to return at each token position.
+or
 
 ```sh
-curl 'https://ente.openai.azure.com/openai/v1/chat/completions' \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "gpt-4o-mini",
-    "logprobs": true,
-    "top_logprobs": 2,
-    "messages": [
-      {
-        "role": "user",
-        "content": "Tell me a joke"
-      }
-    ]
-  }'
+llama-server -hf ggml-org/gemma-3-1b-pt-GGUF
 ```
-
-## Works with other models
-
-### Mistral
-
-Docs: <https://docs.mistral.ai/api>
-
-Temperature for Azure deployments seems to be 1 by default.
 
 ```sh
-curl 'https://ente.openai.azure.com/openai/v1/chat/completions' \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "mistral-small-2503",
-    "messages": [
-       {
-         "role": "user",
-         "content": "Tell me a joke"
-       }
-    ]
-  }'
+curl 'http://localhost:8080/completions' -d '{"seed": 24, "prompt": "I am a", "n_predict": 24}' \
+    | jq -r '.content'
 ```
 
-### DeepSeek
+Seed is optional.
 
-- DeepSeek-V3.1
+Without capping the number of output tokens the model can get into a infinite generation mode with generic unconstrained prompts like the example above. Longer prompts help the model stop (for some seeds):
+
+```sh
+llama-completion -hf ggml-org/gemma-3-1b-pt-GGUF -s 1337 -p "a haiku about a topic I find hard to write a haiku about. hope you like it:"
+```
