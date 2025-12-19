@@ -2,13 +2,15 @@
 
 Base models that provide raw token completion and continuation instead of having an assistant persona trained-in.
 
+## Using llama.cpp
+
 1. llama-server + "/completion"
 2. llama-completion + "-no-cnv"
 
 Needs a base model (e.g. "ggml-org/gemma-3-1b-pt-GGUF", "ggml-org/gemma-3-270m-GGUF").
 
 ```sh
-llama-completion -hf ggml-org/gemma-3-1b-pt-GGUF --seed 24 --p "I am a" -n 24
+llama-completion -hf ggml-org/gemma-3-1b-pt-GGUF --seed 24 -p "I am a" -n 24
 ```
 
 or
@@ -29,3 +31,11 @@ Without capping the number of output tokens the model can get into a infinite ge
 ```sh
 llama-completion -hf ggml-org/gemma-3-1b-pt-GGUF -s 1337 -p "a haiku about a topic I find hard to write a haiku about. hope you like it:"
 ```
+
+`--interactive` mode - `Ctrl-C` to interrupt the model any time, inject the next token, and resume completion.
+
+```sh
+llama-completion -hf ggml-org/gemma-3-1b-pt-GGUF -p "Once upon a time" -i
+```
+
+llama-completion [has a lot of parameters](https://github.com/ggml-org/llama.cpp/blob/master/tools/completion/README.md) controlling which tokens are sampled.
