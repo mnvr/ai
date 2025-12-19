@@ -39,3 +39,17 @@ llama-completion -hf ggml-org/gemma-3-1b-pt-GGUF -p "Once upon a time" -i
 ```
 
 llama-completion [has a lot of parameters](https://github.com/ggml-org/llama.cpp/blob/master/tools/completion/README.md) controlling which tokens are sampled.
+
+## Using Transformers
+
+```py
+from transformers import pipeline, set_seed
+generator = pipeline('text-generation', model='gpt2')
+set_seed(1773)
+seqs = generator("Hello!", max_new_tokens=20, num_return_sequences=5)
+print(*[s['generated_text'] for s in seqs], sep='\n')
+```
+
+`num_return_sequences` is great for rolling multiple dies in one go.
+
+See also [transformers.md](transformers.md)
