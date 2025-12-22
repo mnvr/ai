@@ -1,20 +1,20 @@
 # ML related math symbols
 
-| Symbol        | Name / Pron.               | tldr                            | Notes                                                                                                                                        |
-| ------------- | -------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Δ**         | Uppercase delta            | A finite, discrete change       | The actual difference, `Δx = x₂-x₁`, "Delta x", measuring how much x actually changed.                                                       |
-| **δ**         | Lowercase delta            |                                 |
-| **d**         | Latin d "dee"              | An infinitesimally small change | The calculus version. `df/dx = lim(Δx→0) Δf/Δx`                                                                                              |
-| **∂**         | Curly d "partial" or "del" | Partial derivative              | Rate of change w.r.t. one variable (others kept constant). `∂f/∂x` "del f del x" derivative of f w.r.t. x, holding other variables constant. |
-| **∇**         | Nabla, "del", gradient     | Vector of all partial derivates |                                                                                                                                              |
-| **Σ**         | Sigma                      | Summation                       |                                                                                                                                              |
-| **Π**         | Pi                         | Product                         |                                                                                                                                              |
-| **θ**         | Theta                      | Model parameters (weights)      |                                                                                                                                              |
-| **α**, **η**  | Alpha, Eta                 | Learning rate                   |                                                                                                                                              |
-| **ε**         | Epsilon                    |                                 | Small constant for numerical stability                                                                                                       |
-| **‖x‖**       | Norm                       | "size"/"length" of a vector     |                                                                                                                                              |
-| **x̂ **, **ŷ** | x hat, y hat               | Prediction / estimate           |
-| **x\***       | x star                     | Optimal value                   |                                                                                                                                              |
+| Symbol       | Name / Pron.               | tldr                            | Notes                                                                                                                                        |
+| ------------ | -------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Δ**        | Uppercase delta            | A finite, discrete change       | The actual difference, `Δx = x₂-x₁`, "Delta x", measuring how much x actually changed.                                                       |
+| **δ**        | Lowercase delta            |                                 |
+| **d**        | Latin d "dee"              | An infinitesimally small change | The calculus version. `df/dx = lim(Δx→0) Δf/Δx`                                                                                              |
+| **∂**        | Curly d "partial" or "del" | Partial derivative              | Rate of change w.r.t. one variable (others kept constant). `∂f/∂x` "del f del x" derivative of f w.r.t. x, holding other variables constant. |
+| **∇**        | Nabla, "del", gradient     | Vector of all partial derivates |                                                                                                                                              |
+| **Σ**        | Sigma                      | Summation                       |                                                                                                                                              |
+| **Π**        | Pi                         | Product                         |                                                                                                                                              |
+| **θ**        | Theta                      | Model parameters (weights)      |                                                                                                                                              |
+| **α**, **η** | Alpha, Eta                 | Learning rate                   |                                                                                                                                              |
+| **ε**        | Epsilon                    |                                 | Small constant for numerical stability                                                                                                       |
+| **‖x‖**      | Norm                       | "size"/"length" of a vector     |                                                                                                                                              |
+| **x̂**, **ŷ** | x hat, y hat               | Prediction / estimate           |
+| **x\***      | x star                     | Optimal value                   |                                                                                                                                              |
 
 **Chain rule** - the heart of backprop
 
