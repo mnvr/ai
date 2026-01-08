@@ -1,0 +1,1 @@
+To match the results in the video, use `torch==1.12`.
